@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para o Papai Noel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="site-header-conteudo">
+            <!-- NOVO: corrigida a tag <a> duplicada e o <h1> dentro do <span> -->
+            <a href="#" class="logo">
+                <img src="img/icon.png" alt="Papai Noel" class="logo-icone">
+                <span class="logo-texto">
+                    <span class="logo-titulo">MEU PEDIDO PARA O NATAL</span>
+                </span>
+            </a>
+            <nav class="nav-principal" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#form-carta" class="nav-link ativo">✍️ Escrever Carta</a></li>
+                    <li><a href="#duvidas" class="nav-link">❓ Dúvidas</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <h1>Carta para o Papai Noel!</h1>
+        </div>
+
+        <form action="#" method="POST" id="form-carta" novalidate>
+            <div class="form-group">
+                <label for="nome-crianca">Seu Nome: <span class="obrigatorio">*</span></label>
+                <input type="text" id="nome-crianca" name="nome_crianca" placeholder="Como você se chama?" data-validar="nome">
+                <small class="mensagem-erro" data-erro="nome-crianca"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="nome-responsavel">Nome do seu Responsável:<span class="obrigatorio">*</span></label>
+                <input type="text" id="nome-responsavel" name="nome_responsavel" placeholder="Nome do pai, mãe ou responsável" data-validar="nome">
+                <small class="mensagem-erro" data-erro="nome-responsavel"></small>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="idade">Idade:<span class="obrigatorio">*</span></label>
+                    <input type="number" id="idade" name="idade" min="1" max="15" placeholder="Ex: 8" data-validar="idade">
+                    <small class="mensagem-erro" data-erro="idade"></small>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone do Responsável:<span class="obrigatorio">*</span></label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" maxlength="15" data-validar="telefone">
+                    <small class="mensagem-erro" data-erro="telefone"></small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="cep">CEP:<span class="obrigatorio">*</span></label>
+                    <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" data-validar="cep">
+                    <small class="ajuda" id="cep-status"></small>
+                    <small class="mensagem-erro" data-erro="cep"></small>
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço:<span class="obrigatorio">*</span></label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Rua, avenida..." data-validar="endereco">
+                    <small class="mensagem-erro" data-erro="endereco"></small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="bairro">Bairro:<span class="obrigatorio">*</span></label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Seu bairro" data-validar="bairro">
+                    <small class="mensagem-erro" data-erro="bairro"></small>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Número da Casa:<span class="obrigatorio">*</span></label>
+                    <input type="text" id="numero" name="numero" placeholder="Ex: 123" data-validar="numero">
+                    <small class="mensagem-erro" data-erro="numero"></small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="uf">UF <span class="obrigatorio">*</span></label>
+                    <select id="uf" name="uf" data-validar="uf">
+                        <option value="">Selecione seu estado</option>
+                    </select>
+                    <small class="mensagem-erro" data-erro="uf"></small>
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade <span class="obrigatorio">*</span></label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" data-validar="cidade">
+                    <small class="mensagem-erro" data-erro="cidade"></small>
+                </div>
+            </div>
+
+            <div class="secao-carta">
+                <h2>Sua Carta para o Papai Noel!</h2>
+                <div class="form-group">
+                    <label for="carta">Escreva aqui o seu pedido: <span class="obrigatorio">*</span></label>
+                    <textarea id="carta" name="carta" placeholder="Querido Papai Noel, este ano eu gostaria de pedir..." maxlength="1000" data-validar="carta"></textarea>
+                    <small class="ajuda contador"><span id="contador">0</span>/1000 caracteres</small>
+                    <small class="mensagem-erro" data-erro="carta"></small>
+                </div>
+            </div>
+
+            <div class="form-group consentimento">
+                <label class="checkbox-label" for="consentimento">
+                    <input
+                        type="checkbox"
+                        id="consentimento"
+                        name="consentimento"
+                        data-validar="consentimento"
+                    >
+                    <span class="checkbox-texto">
+                        Declaro que sou <strong>maior de 18 anos</strong>, responsável pela criança,
+                        e <strong>autorizo</strong> o registro desta cartinha conforme a
+                        <a href="#politica-privacidade" class="link-politica">Política de Privacidade</a>.
+                        <span class="obrigatorio">*</span>
+                    </span>
+                </label>
+                <small class="mensagem-erro" data-erro="consentimento"></small>
+            </div>
+
+            <button type="submit">🎁 Enviar Carta para o Polo Norte!</button>
+        </form>
+    </div>
+
+    <section id="duvidas" class="secao-duvidas">
+        <h2>❓ Dúvidas Frequentes</h2>
+
+        <details>
+            <summary>Quem pode enviar uma carta?</summary>
+            <p>Crianças de 1 a 15 anos, com o consentimento e os dados de um responsável.</p>
+        </details>
+
+        <details>
+            <summary>Quando minha carta chega ao Papai Noel?</summary>
+            <p>Após o envio, a carta é registrada e encaminhada simbolicamente ao Polo Norte. Você receberá uma confirmação na tela.</p>
+        </details>
+
+        <details>
+            <summary>Meus dados estão seguros?</summary>
+            <p>Sim. Os dados são usados apenas para identificar a carta e o responsável, e não são compartilhados com terceiros. Veja nossa <a href="#politica-privacidade" class="link-politica">Política de Privacidade</a>.</p>
+        </details>
+
+        <details>
+            <summary>Posso enviar mais de uma carta?</summary>
+            <p>Sim. Basta preencher o formulário novamente após o envio.</p>
+        </details>
+    </section>
+
+    <section id="cartas-enviadas" class="secao-cartas-enviadas">
+        <h2>📨 Últimas Cartas Enviadas</h2>
+        <div id="lista-cartas" class="lista-cartas">
+            <p class="sem-cartas">Nenhuma carta enviada ainda. Seja o primeiro a escrever para o Papai Noel! 🎅</p>
+        </div>
+    </section>
+
+    <!-- NOVO: Modal da Política de Privacidade -->
+    <div class="modal-overlay" id="modal-politica" role="dialog" aria-modal="true" aria-labelledby="titulo-politica">
+        <div class="modal-politica">
+            <div class="modal-header">
+                <h2 id="titulo-politica">🔒 Política de Privacidade</h2>
+                <button class="modal-fechar" id="fechar-politica" aria-label="Fechar política de privacidade">×</button>
+            </div>
+
+            <div class="modal-body">
+                <h3>1. Quais dados coletamos</h3>
+                <p>Coletamos apenas os dados necessários para registrar a cartinha:</p>
+                <ul>
+                    <li>Nome da criança e idade</li>
+                    <li>Nome e telefone do responsável</li>
+                    <li>Endereço (CEP, rua, bairro, número, cidade, UF)</li>
+                    <li>Texto da cartinha</li>
+                </ul>
+
+                <h3>2. Finalidade</h3>
+                <p>Os dados são usados <strong>exclusivamente</strong> para identificar a cartinha e permitir que instituições parceiras possam, se desejarem, entrar em contato com o responsável. <strong>Não vendemos nem compartilhamos</strong> seus dados com terceiros para fins comerciais.</p>
+
+                <h3>3. Consentimento</h3>
+                <p>O envio só é permitido mediante o consentimento expresso de um responsável maior de 18 anos, marcado no formulário.</p>
+
+                <h3>4. Armazenamento</h3>
+                <p>Nesta versão do projeto, as cartas são armazenadas <strong>localmente no navegador do usuário</strong> (localStorage). Nenhum dado é enviado a servidores externos, exceto a consulta de CEP à API pública ViaCEP (que não armazena dados pessoais).</p>
+
+                <h3>5. Direitos do titular (LGPD)</h3>
+                <p>Conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018), o responsável pode, a qualquer momento:</p>
+                <ul>
+                    <li>Solicitar acesso aos dados</li>
+                    <li>Corrigir dados incompletos ou desatualizados</li>
+                    <li>Solicitar a exclusão dos dados</li>
+                    <li>Revogar o consentimento</li>
+                </ul>
+
+                <h3>6. Segurança</h3>
+                <p>Adotamos medidas técnicas para proteger os dados, incluindo validação, limitação de exibição pública (apenas nome, cidade, UF e texto da carta são exibidos) e armazenamento local.</p>
+
+                <h3>7. Contato</h3>
+                <p>Para exercer seus direitos ou tirar dúvidas, entre em contato pelo e-mail: <strong>contato@meupedidoparaonatal.com.br</strong></p>
+
+                <p style="margin-top: 18px; font-size: 0.85em; color: #888;">
+                    Última atualização: <span id="data-atualizacao-politica"></span>
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-modal primario" id="aceitar-politica">Entendi e aceito</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/funcoes.js"></script>
+</body>
+</html>
