@@ -67,7 +67,6 @@ body {
 .logo-texto strong { font-size: 1.05em; color: #fff; }
 .logo-texto small  { font-size: 0.72em; color: rgba(255,255,255,0.65); }
 
-/* NOVO: estilização do título do logo (substitui o <h1>) */
 .logo-titulo {
     font-size: 1.05em;
     font-weight: 700;
@@ -131,7 +130,7 @@ body {
 .menu-toggle.aberto span:nth-child(2) { opacity: 0; }
 .menu-toggle.aberto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ========== CARD DO FORMULÁRIO ========== */
+/*  CARD DO FORMULÁRIO  */
 .container {
     background: #fff;
     max-width: 700px;
